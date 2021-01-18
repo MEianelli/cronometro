@@ -64,9 +64,11 @@ stop.addEventListener('click', () => {
 
 const start = document.querySelector('.start');
 start.addEventListener('click', () => {
-  currentTimeArray = getCurrentDisplayTime();
-  animation = true;
-  startAnimation();
+  if (!animation) {
+    currentTimeArray = getCurrentDisplayTime();
+    animation = true;
+    startAnimation();
+  }
 });
 
 const units = document.querySelectorAll('.unit');
