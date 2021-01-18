@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://kit.fontawesome.com/1696b49208.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+    <title>Cronometro</title>
+  </head>
+
+  <body>
+    <h1>CRONOMETRO</h1>
+    <div class="display">
+      <div class="time hour">00</div>
+      <div class="dot">:</div>
+      <div class="time min">00</div>
+      <div class="dot">:</div>
+      <div class="time sec">00</div>
+      <div class="dot">:</div>
+      <div class="time mili">00</div>
+    </div>
+    <div class="controls">
+      <div class="control start">Start</div>
+      <div class="control stop">Stop</div>
+      <div class="control clear">Clear</div>
+    </div>
+    <h2>Set Time</h2>
+    <input type="number" name="tempoInput" id="tempoInput" min="0" class="tempoInput">
+    <div class="divStyle unit selected">min</div>
+    <div class="divStyle unit">sec</div>
+    <h2>Presets</h2>
+    <div class="divStyle presets">2 min</div>
+    <div class="divStyle presets">5 min</div>
+    <div class="divStyle presets">10 min</div>
+    <div class="divStyle presets">15 min</div>
+    <h2>Addtime</h2>
+    <div class="divStyle addtime">+ 30 sec</div>
+    <div class="divStyle addtime">+ 1 min</div>
+    <script src="script.js" type="text/javascript"></script>
+  </body>
+
+</html>
