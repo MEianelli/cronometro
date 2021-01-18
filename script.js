@@ -1,7 +1,7 @@
 
 let animation = true;
 let currentTimeArray = [0, 0, 0, 0];
-const miliseconds = 1000 / 100;
+const miliseconds = 1000 / 10;
 const hourDiv = document.querySelector('.hour');
 const minDIv = document.querySelector('.min');
 const secDiv = document.querySelector('.sec');
@@ -22,7 +22,7 @@ function startAnimation() {
 function updateTime() {
   currentTimeArray[3] -= 1;
   if (currentTimeArray[3] < 0) {
-    currentTimeArray[3] = 99;
+    currentTimeArray[3] = 9;
     currentTimeArray[2] -= 1;
     if (currentTimeArray[2] < 0) {
       currentTimeArray[2] = 59;
@@ -119,7 +119,6 @@ function updateDisplay([hour, min, sec, mili]) {
   hour = ('00' + hour).slice(-2);
   min = ('00' + min).slice(-2);
   sec = ('00' + sec).slice(-2);
-  mili = ('00' + mili).slice(-2);
   hourDiv.innerHTML = hour;
   minDIv.innerHTML = min;
   secDiv.innerHTML = sec;
