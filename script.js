@@ -6,6 +6,7 @@ const hourDiv = document.querySelector('.hour');
 const minDIv = document.querySelector('.min');
 const secDiv = document.querySelector('.sec');
 const miliDiv = document.querySelector('.mili');
+const banner = document.querySelector('.endOfBreak');
 
 function startAnimation() {
 
@@ -32,12 +33,17 @@ function updateTime() {
         currentTimeArray[1] = 59;
         currentTimeArray[0] -= 1;
         if (currentTimeArray[0] < 0) {
-          animation = false;
+          clearButton();
+          banner.style.display = "flex";
         }
       }
     }
   }
 }
+
+banner.addEventListener('click', () => {
+  banner.style.display = "none";
+})
 
 const clear = document.querySelector('.clear');
 clear.addEventListener('click', async () => {
