@@ -9,10 +9,11 @@ const miliDiv = document.querySelector('.mili');
 
 function startAnimation() {
 
-  updateTime();
-  updateDisplay(currentTimeArray);
+
 
   if (animation) {
+    updateTime();
+    updateDisplay(currentTimeArray);
     setTimeout(() => {
       startAnimation();
     }, miliseconds);
@@ -39,11 +40,15 @@ function updateTime() {
 }
 
 const clear = document.querySelector('.clear');
-clear.addEventListener('click', () => {
-  currentTimeArray = [0, 0, 0, 0];
-  animation = false;
-  updateDisplay(currentTimeArray);
+clear.addEventListener('click', async () => {
+  await clearButton();
 })
+
+async function clearButton() {
+  animation = false;
+  currentTimeArray = [0, 0, 0, 0];
+  updateDisplay(currentTimeArray);
+}
 
 const stop = document.querySelector('.stop');
 stop.addEventListener('click', () => {
@@ -97,11 +102,13 @@ function setTimer(time) {
   const min = Math.floor(Math.floor(time % 3600) / 60);
   const sec = Math.floor(Math.floor(time % 3600) % 60);
   updateDisplay([hour, min, sec, 0]);
+  return [hour, min, sec, 0];
 }
 
 const presets = document.querySelectorAll('.presets');
 presets.forEach(e => {
   e.addEventListener('click', ({ target }) => {
+    clearButton();
     const clickedPresetTime = getPresetTime(target);
     setTimer(clickedPresetTime * 60);
   });
@@ -142,7 +149,10 @@ function addTimeToDisplay(time) {
   let [hour, min, sec, mili] = currentDisplayTime;
   let total = (hour * 60) + (min * 60) + sec;
   total += time;
-  setTimer(total);
+  const currentTime = setTimer(total);
+  if (animation) {
+    currentTimeArray = currentTime;
+  }
 }
 
 function getCurrentDisplayTime() {
